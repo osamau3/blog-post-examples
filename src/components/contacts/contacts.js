@@ -5,9 +5,9 @@ Contacts.model = function () {
   this.email = m.prop('[Your email]')
 };
 
-Contacts.controller = function () {
+Contacts.controller = function (options) {
   var ctrl = this
-  ctrl.contacts = m.prop( [new Contacts.model()] )
+  ctrl.contacts = options.contacts
 
   ctrl.add = function () {
     var newModel = new Contacts.model()
@@ -21,7 +21,6 @@ Contacts.controller = function () {
 Contacts.view = function (ctrl) {
 
   return m('.contacts', [
-    m('h3', 'Please enter your contact information:'),
     ctrl.contacts().map(function (contact, idx) {
       return m('fieldset', [
         m('legend', "Attendee #" + (idx+1)),
