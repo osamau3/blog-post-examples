@@ -22,5 +22,6 @@ function volunteerView (volunteer) {
   return m('li.volunteer', [
     m('label', volunteer.name),
     m('label', "(" + volunteer.email + ")")
+    
   ])
 }
